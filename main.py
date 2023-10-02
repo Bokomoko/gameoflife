@@ -24,3 +24,10 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
     pygame.quit()
+
+
+if __name__ == '__main__':
+    # the usual boilerplate stuff
+    # why do we always need this?
+    # Python should have a more elegant way to do this
+    main()
