@@ -54,10 +54,10 @@ def get_neighbors(position):
         # check if the cell is on the screen or not
         if x+dx < 0 or x+dx >= GRID_WIDTH:
             continue
-        if y+dy < 0 or y+dy >= GRID_HEIGHT:
-            continue
 
         for dy in [-1, 0, 1]:
+            if y+dy < 0 or y+dy >= GRID_HEIGHT:
+                continue
             if dx == 0 and dy == 0:
                 continue  # skip it's own position
             neighbors.append((x+dx, y+dy))
