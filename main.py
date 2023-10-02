@@ -19,6 +19,14 @@ clock = pygame.time.Clock()
 
 
 def draw_grid(positions):
+    for position in positions:
+        col, row = position
+        pygame.draw.rect(
+            screen,
+            YELLOW,
+            (col*TILE_SIZE, row*TILE_SIZE, TILE_SIZE, TILE_SIZE)
+        )
+
     # draw horizontals
     for row in range(GRID_HEIGHT):
         pygame.draw.line(
@@ -40,7 +48,10 @@ def draw_grid(positions):
 def main():
     running = True
 
+    # positions = set( (30,20)) won't work
     positions = set()
+    positions.add((30, 20))
+
     while running:
         clock.tick(FPS)
         for event in pygame.event.get():
