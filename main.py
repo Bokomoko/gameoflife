@@ -15,14 +15,33 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 clock = pygame.time.Clock()
 
+# it will receive a set of positions (cells) and draw them
+
+
+def draw_grid(positions):
+    for row in range(GRID_HEIGHT):
+        pygame.draw.line(
+            screen,
+            BLACK,
+            (0, row*TILE_SIZE),
+            (WIDTH, row*TILE_SIZE)
+        )
+
 
 def main():
     running = True
+
+    positions = set()
     while running:
         clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+        screen.fill(GREY)
+        draw_grid(positions)
+        pygame.display.update()
+
+    print("Game ended by user.")
     print("Thank you for playing!")
     pygame.quit()
 
