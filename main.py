@@ -106,6 +106,7 @@ def main():
             count += 1
         if count % update_freq == 0:
             positions = adjust_grid(positions)
+        pygame.display.set_caption("Playing" if playing else "Paused")
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
